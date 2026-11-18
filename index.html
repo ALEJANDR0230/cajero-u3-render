@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cajero U3</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <header class="top">
+    <div class="shell header">
+      <a class="brand" href="/" aria-label="Inicio de Cajero U3"><span class="mark" aria-hidden="true"><i></i></span>Cajero U3</a>
+      <span class="environment" id="environment">Conectando</span>
+    </div>
+  </header>
+  <main class="shell">
+    <div class="page-heading"><h1>Cajero automático</h1><p>Operaciones con dinero ficticio para la práctica de infraestructura.</p></div>
+    <div class="dashboard">
+      <div class="left">
+        <section class="balance" aria-label="Saldo de la cuenta">
+          <div class="balance-head"><span>Saldo disponible</span><span class="currency">MXN</span></div>
+          <strong id="balance" aria-live="polite">$0.00</strong>
+          <div class="account-id"><span class="account-dot"></span> Cuenta de demostración</div>
+        </section>
+        <section class="panel controls" aria-labelledby="operations-title">
+          <h2 id="operations-title">Operaciones</h2>
+          <div class="actions" role="group" aria-label="Tipo de operación">
+            <button type="button" data-action="deposit" aria-pressed="true"><span aria-hidden="true">↓</span> Depositar</button>
+            <button type="button" data-action="withdraw" aria-pressed="false"><span aria-hidden="true">↑</span> Retirar</button>
+          </div>
+          <form id="operation">
+            <label for="amount">Monto en pesos</label>
+            <div class="amount"><span aria-hidden="true">$</span><input id="amount" name="amount" inputmode="decimal" autocomplete="off" placeholder="0.00" maxlength="8" required></div>
+            <div class="quick" aria-label="Montos rápidos">
+              <button type="button" data-quick="100">$100</button><button type="button" data-quick="200">$200</button>
+              <button type="button" data-quick="500">$500</button><button type="button" data-quick="1000">$1,000</button>
+            </div>
+            <button class="submit" id="submit" type="submit" disabled>Confirmar depósito <span aria-hidden="true">→</span></button>
+            <p id="message" class="message" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+      </div>
+      <section class="panel history" aria-labelledby="history-title">
+        <div class="history-head"><div><h2 id="history-title">Historial de movimientos</h2><p id="movement-count">0 movimientos</p></div><span class="db" id="database">Conectando</span></div>
+        <ul id="movements" class="movements"></ul>
+        <div class="empty" id="empty"><span aria-hidden="true">≡</span><strong>Todavía no hay movimientos</strong><p>El primer depósito o retiro aparecerá aquí.</p></div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
